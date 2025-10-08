@@ -1,7 +1,9 @@
 // app/user/page.tsx
+import { dbConnect } from "@/service/mongo";
 import { getAllUsers } from "../queries/user-queries";
 
 export default async function User() {
+  await dbConnect();
   const users = await getAllUsers();
   console.log("---------users", users);
   return (
